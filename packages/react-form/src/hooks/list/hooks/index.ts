@@ -7,7 +7,7 @@ export {
   updateErrorAction,
   newDefaultAction,
   resetAction,
-  addFieldsAction,
-  removeFieldsAction,
+  addFieldItemAction,
+  removeFieldItemAction,
   ListState,
 } from './reducer';

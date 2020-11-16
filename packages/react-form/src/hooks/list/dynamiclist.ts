@@ -1,5 +1,5 @@
 import {FieldDictionary} from '../../types';
-import {addFieldsAction, removeFieldsAction} from './hooks';
+import {addFieldItemAction, removeFieldItemAction} from './hooks';
 import {useBaseList, FieldListConfig} from './baselist';
 
 interface DynamicList<Item extends object> {
@@ -18,11 +18,11 @@ export function useDynamicList<Item extends object>(
   const {fields, dispatch} = useBaseList(listOrConfig, validationDependencies);
 
   function addItem() {
-    dispatch(addFieldsAction([fieldFactory()]));
+    dispatch(addFieldItemAction([fieldFactory()]));
   }
 
   function removeItem(index: number) {
-    dispatch(removeFieldsAction(index));
+    dispatch(removeFieldItemAction(index));
   }
 
   return {fields, addItem, removeItem};

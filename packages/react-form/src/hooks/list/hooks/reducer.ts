@@ -11,8 +11,8 @@ import {mapObject} from '../../../utilities';
 
 export type ListAction<Item> =
   | ReinitializeAction<Item>
-  | AddFieldAction<Item>
-  | RemoveFieldAction
+  | AddFieldItemAction<Item>
+  | RemoveFieldItemAction
   | UpdateErrorAction<Item>
   | UpdateAction<Item, keyof Item>
   | ResetAction<Item, keyof Item>
@@ -23,13 +23,13 @@ interface ReinitializeAction<Item> {
   payload: {list: Item[]};
 }
 
-interface AddFieldAction<Item> {
-  type: 'addFields';
+interface AddFieldItemAction<Item> {
+  type: 'addFieldItem';
   payload: {list: Item[]};
 }
 
-interface RemoveFieldAction {
-  type: 'removeFields';
+interface RemoveFieldItemAction {
+  type: 'removeFieldItem';
   payload: {indexToRemove: number};
 }
 
@@ -81,16 +81,20 @@ export function reinitializeAction<Item>(
   };
 }
 
-export function addFieldsAction<Item>(list: Item[]): AddFieldAction<Item> {
+export function addFieldItemAction<Item>(
+  list: Item[],
+): AddFieldItemAction<Item> {
   return {
-    type: 'addFields',
+    type: 'addFieldItem',
     payload: {list},
   };
 }
 
-export function removeFieldsAction(indexToRemove: number): RemoveFieldAction {
+export function removeFieldItemAction(
+  indexToRemove: number,
+): RemoveFieldItemAction {
   return {
-    type: 'removeFields',
+    type: 'removeFieldItem',
     payload: {indexToRemove},
   };
 }
@@ -154,13 +158,13 @@ function reduceList<Item extends object>(
         list: action.payload.list.map(initialListItemState),
       };
     }
-    case 'addFields': {
+    case 'addFieldItem': {
       return {
         ...state,
         list: [...state.list, ...action.payload.list.map(initialListItemState)],
       };
     }
-    case 'removeFields': {
+    case 'removeFieldItem': {
       const newList = [...state.list];
       newList.splice(action.payload.indexToRemove, 1);
       return {
