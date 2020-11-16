@@ -5,6 +5,7 @@ import {mount} from '@shopify/react-testing';
 
 import {useBaseList, FieldListConfig} from '../baselist';
 import {ListValidationContext} from '../../../types';
+
 import {
   Variant,
   randomVariants,

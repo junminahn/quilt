@@ -8,12 +8,31 @@ import {
   ListValidationContext,
 } from '../../types';
 import {mapObject, normalizeValidation} from '../../utilities';
+
 import {
   useHandlers,
   useListReducer,
   ListAction,
   reinitializeAction,
 } from './hooks';
+
+/*
+
+ * A custom hook for handling the state and validations of fields for a list of objects which can be built upon. (e.g useList and useDynamicList).
+
+ * @param listOrConfig - A configuration object specifying both the value and validation config.
+ * @param validationDependencies - An array of dependencies to use to decide when to regenerate validators.
+ * @returns A list of dictionaries of `Field` objects representing the state of your input and a dispatcher which can be used for other hooks to build around base list (e.g useList and useDynamicList).
+ *
+ * @remarks
+ * **Reinitialization:** If the `list` property of the field configuration changes between calls to `useBaseList`,
+ * the field will be reset to use it as it's new default value.
+ *
+ * **Imperative methods:** The returned `Field` objects contains a number of methods used to imperatively alter their state.
+ * These should only be used as escape hatches where the existing hooks and components do not make your life easy,
+ * or to build new abstractions in the same vein as `useForm`, `useSubmit` and friends.
+ *
+*/
 
 export interface FieldListConfig<Item extends object> {
   list: Item[];

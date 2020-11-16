@@ -6,6 +6,8 @@ import {
   FieldState,
   NormalizedValidationDictionary,
 } from '../../../types';
+import {runValidation} from '../utils';
+
 import {
   updateAction,
   updateErrorAction,
@@ -14,7 +16,6 @@ import {
   ListState,
   ListAction,
 } from './index';
-import {runValidation} from '../utils';
 
 export function useHandlers<Item extends object>(
   state: ListState<Item>,

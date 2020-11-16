@@ -1,8 +1,10 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import {mount} from '@shopify/react-testing';
 
 import {useList} from '../list';
 import {FieldListConfig} from '../baselist';
+
 import {randomVariants, TextField, Variant} from './utils';
 
 describe('useList', () => {
@@ -30,7 +32,7 @@ describe('useList', () => {
     );
   }
 
-  it('returns the correct number of field items', () => {
+  it('returns the right number of field items', () => {
     const variants = randomVariants(4);
     const wrapper = mount(<List list={variants} />);
 

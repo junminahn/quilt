@@ -1,9 +1,9 @@
 import {FieldDictionary} from '../../types';
+
 import {useBaseList, FieldListConfig} from './baselist';
 
 /**
- * A custom hook for handling the state and validations of fields for a list of objects.
- *
+ * A custom hook for utilizing useBaseList. useList uses useBaseList. This hook is responsible for returning just the field objects useBaseList provides.
  * In it's simplest form `useList` can be called with a single parameter with the list to derive default values and structure from.
  *
  * ```typescript
@@ -92,17 +92,10 @@ import {useBaseList, FieldListConfig} from './baselist';
  * }
  * ```
  *
- * @param config - A configuration object specifying both the value and validation config.
+ * @param listOrConfig - A configuration object specifying both the value and validation config.
  * @param validationDependencies - An array of dependencies to use to decide when to regenerate validators.
  * @returns A list of dictionaries of `Field` objects representing the state of your input. It also includes functions to manipulate that state. Generally, you will want to pass these callbacks down to the component or components representing your input.
  *
- * @remarks
- * **Reinitialization:** If the `list` property of the field configuration changes between calls to `useList`,
- * the field will be reset to use it as it's new default value.
- *
- * **Imperative methods:** The returned `Field` objects contains a number of methods used to imperatively alter their state.
- * These should only be used as escape hatches where the existing hooks and components do not make your life easy,
- * or to build new abstractions in the same vein as `useForm`, `useSubmit` and friends.
  */
 export function useList<Item extends object>(
   listOrConfig: FieldListConfig<Item> | Item[],
