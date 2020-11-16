@@ -1,5 +1,4 @@
 import {FieldDictionary} from '../../types';
-
 import {useBaseList, FieldListConfig} from './baselist';
 
 /**

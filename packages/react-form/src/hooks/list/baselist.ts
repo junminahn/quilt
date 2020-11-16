@@ -8,9 +8,12 @@ import {
   ListValidationContext,
 } from '../../types';
 import {mapObject, normalizeValidation} from '../../utilities';
-
-import {ListAction, reinitializeAction, useListReducer} from './utils';
-import {useHandlers} from './hooks';
+import {
+  useHandlers,
+  useListReducer,
+  ListAction,
+  reinitializeAction,
+} from './hooks';
 
 export interface FieldListConfig<Item extends object> {
   list: Item[];

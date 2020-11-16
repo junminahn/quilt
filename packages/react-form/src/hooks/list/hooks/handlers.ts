@@ -13,7 +13,7 @@ import {
   resetAction,
   ListState,
   ListAction,
-} from '../utils';
+} from './index';
 import {runValidation} from '../utils';
 
 export function useHandlers<Item extends object>(

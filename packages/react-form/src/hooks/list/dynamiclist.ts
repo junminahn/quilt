@@ -1,5 +1,5 @@
 import {FieldDictionary} from '../../types';
-import {addFieldsAction, removeFieldsAction} from './utils';
+import {addFieldsAction, removeFieldsAction} from './hooks';
 import {useBaseList, FieldListConfig} from './baselist';
 
 interface DynamicList<Item extends object> {
