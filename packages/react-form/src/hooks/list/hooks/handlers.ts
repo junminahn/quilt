@@ -13,7 +13,7 @@ import {
   resetAction,
   ListState,
   ListAction,
-} from '../reducer';
+} from '../utils';
 import {runValidation} from '../utils';
 
 export function useHandlers<Item extends object>(

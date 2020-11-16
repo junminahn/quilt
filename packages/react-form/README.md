@@ -651,7 +651,7 @@ const emptyCardFactory = (): Card => ({
   cvv: '',
 });
 
-const {fields, addField, removeField} = useDynamicList(
+const {fields, addItem, removeItem} = useDynamicList(
   [{cardNumber: '4242 4242 4242 4242', cvv: '000'}],
   emptyCardFactory,
 );
@@ -678,17 +678,17 @@ You can choose to initialize it with an existing number of cards or no card.
         onChange={field.cvv.onChange}
       />
       <div>
-        <Button onClick={() => removeField(index)}>Remove</Button>
+        <Button onClick={() => removeItem(index)}>Remove</Button>
       </div>
     </FormLayout.Group>
   ));
 }
-<Button onClick={() => addField()}>Add Card</Button>;
+<Button onClick={() => addItem()}>Add Card</Button>;
 ```
 
 We render our UI representation of the fields by utilizing the `fields.map` function. For each field, we can use the handlers such as onChange, value, onBlur. These are the same handlers that useList provides.
 
-We can also utilize the `removeField`, and `addField` functions. In this example, these functions are attached to a button press. When we remove a field we pass in the index (to indicate what field to remove). When we add a field, we utilize the factory we passed in when initializing `useDynamicList`.
+We can also utilize the `removeItem`, and `addItem` functions. In this example, these functions are attached to a button press. When we remove a field we pass in the index (to indicate what field to remove). When we add a field, we utilize the factory we passed in when initializing `useDynamicList`.
 
 #### Does this work with useForm?
 
@@ -707,6 +707,8 @@ const {submit, dirty, submitting} = useForm({
   },
 });
 ```
+
+A code sandbox of `useDynamicList` in action can be seen [here](https://codesandbox.io/s/hungry-rubin-exrkz?fontsize=14&hidenavigation=1&theme=dark)
 
 Here, onSubmit is called when the form is submitted. See `useForm` documentation.
 

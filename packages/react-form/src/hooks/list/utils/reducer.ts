@@ -1,13 +1,13 @@
 import {useReducer, Reducer} from 'react';
 
-import {FieldStates, ErrorValue} from '../../types';
+import {FieldStates, ErrorValue} from '../../../types';
 import {
   reduceField,
   FieldAction,
   updateErrorAction as updateFieldError,
   initialFieldState,
-} from '../field';
-import {mapObject} from '../../utilities';
+} from '../../field';
+import {mapObject} from '../../../utilities';
 
 export type ListAction<Item> =
   | ReinitializeAction<Item>

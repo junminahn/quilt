@@ -1,1 +1,1 @@
-export {useHandlers} from './useHandlers';
+export {useHandlers} from './handlers';

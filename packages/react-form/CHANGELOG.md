@@ -7,7 +7,7 @@ and adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-- Added `useDynamicList` functionality.
+- Added `useDynamicList` functionality. `useDynamicList` adds the ability to dynamically add and remove list items.
 
 ## [0.8.1] - 2020-10-20
 
